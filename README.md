@@ -6,15 +6,8 @@ Pc&T is an application designed to better protect your accounts and devices by c
 [Demo](https://dualsfwshield.github.io/Password-C-et-T/)
 
 ## Features
-### Create strong and unique passwords with rules
-### Manage PIN codes, passwords, and other sensitive information
-### Protect your accounts and devices with advanced security features
-
-## Download
-To Download the app, go into the release section.
-
-## Support
-If you encounter any issues with the application, use the dedicated tab. You can also fill out the contact form on our website.
+Create strong and unique passwords with rules
+Protect your accounts and devices with advanced password
 
 ## License
 Pc&T is licensed under [MIT License](https://opensource.org/licenses/MIT)
