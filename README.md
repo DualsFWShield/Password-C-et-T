@@ -3,6 +3,8 @@
 ## Description
 Pc&T is an application designed to better protect your accounts and devices by creating passwords with rules. It also provides a PIN code manager, password manager, and more.
 
+[Demo](https://dualsfwshield.github.io/Password-C-et-T/)
+
 ## Features
 ### Create strong and unique passwords with rules
 ### Manage PIN codes, passwords, and other sensitive information
