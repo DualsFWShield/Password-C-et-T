@@ -1,0 +1,207 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.generator {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 30%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.settings {
+    width: 65%;
+    padding: 15px;
+}
+
+.attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.attribute {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles pour les champs de saisie */
+label {
+    font-weight: bold;
+    color: #333;
+    width: 220px; /* Fixe la largeur pour l'alignement */
+}
+
+/* Styles des champs de saisie */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Textarea pour le mot de passe généré */
+#generatedPassword {
+    height: 100px;
+    background-color: #f9f9f9; /* Couleur de fond pour le textarea */
+    resize: none; /* Empêche le redimensionnement */
+}
+
+/* Styles individuels pour les boutons */
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Ajoute un espacement au-dessus des boutons */
+}
+
+/* Boutons avec leurs couleurs */
+#icon-btn-remove {
+    background-color: #61a728; /* Vert */
+}
+
+#icon-btn-remove:hover {
+    background-color: #549123; /* Vert plus foncé au survol */
+}
+
+#icon-btn-move-up {
+    background-color: #a77428; /* Orange */
+}
+
+#icon-btn-move-up:hover {
+    background-color: #8a6020; /* Orange plus foncé au survol */
+}
+
+#icon-btn-move-down {
+    background-color: #28a781; /* Vert clair */
+}
+
+#icon-btn-move-down:hover {
+    background-color: #22916f; /* Vert plus foncé au survol */
+}
+
+#addCategoryBtn {
+    background-color: #28a745; /* Vert */
+}
+
+#addCategoryBtn:hover {
+    background-color: #218838; /* Vert plus foncé au survol */
+}
+
+#addWordBtn {
+    background-color: #17a2b8; /* Bleu clair */
+}
+
+#addWordBtn:hover {
+    background-color: #138496; /* Bleu plus foncé au survol */
+}
+
+#generateBtn {
+    background-color: #007BFF; /* Bleu */
+}
+
+#generateBtn:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+}
+
+#copyBtn {
+    background-color: #ffc107; /* Jaune */
+}
+
+#copyBtn:hover {
+    background-color: #e0a800; /* Jaune plus foncé au survol */
+}
+
+#saveBtn {
+    background-color: #6f42c1; /* Violet */
+}
+
+#saveBtn:hover {
+    background-color: #5a32a3; /* Violet plus foncé au survol */
+}
+
+/* Styles pour le bouton d'estimation */
+#estimateBtn {
+    background-color: #007bff; /* Bleu */
+}
+
+#estimateBtn:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+}
+
+/* Champ de mot de passe à estimer */
+#estimatePassword,
+#passwordToEstimate {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estimation du temps */
+#timeEstimate {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .generator {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sidebar, .settings {
+        width: 100%; /* Prend 100% de la largeur sur petits écrans */
+    }
+}

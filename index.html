@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de mots de passe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Générateur de Mots de Passe</h1>
+        <div class="generator">
+            <div class="sidebar">
+                <h2>Ordre des catégories</h2>
+                <ul class="category-list" id="categoryList"></ul>
+                <button id="addCategoryBtn" class="icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg> Ajouter Catégorie
+                </button>
+                <select id="categorySelect">
+                    <option value="symboles">Symboles</option>
+                    <option value="chiffres">Chiffres</option>
+                    <option value="lettre-maj">Lettre Majuscule</option>
+                    <option value="lettre-min">Lettre Minuscule</option>
+                    <option value="mot-aleatoire">Mot Aléatoire</option>
+                </select>
+            </div>
+
+            <div class="settings">
+                <div class="attributes">
+                    <div class="attribute">
+                        <label for="passwordLength">Longueur du mot de passe :</label>
+                        <input type="number" id="passwordLength" min="6" max="50" value="12">
+                    </div>
+
+                    <div class="attribute">
+                        <label for="includeWord">Mot à inclure :</label>
+                        <input type="text" id="includeWord" placeholder="Mot optionnel">
+                        <button id="addWordBtn" class="icon-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="attribute">
+                        <label for="numberOfPasswords">Nombre de mots de passe :</label>
+                        <input type="number" id="numberOfPasswords" min="1" max="100" value="1">
+                    </div>
+
+                    <button id="generateBtn" class="icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg> Générer
+                    </button>
+                </div>
+
+                <div class="output">
+                    <textarea id="generatedPassword" placeholder="Votre mot de passe apparaîtra ici..." readonly></textarea>
+                    <button id="copyBtn" class="icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8M8 12h8m-6 8h6m-2-8H8m8-4V4a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-6z" />
+                        </svg> Copier
+                    </button>
+                    <button id="saveBtn" class="icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v13h18V7H3zm4 8l5-5 5 5H7zm4-11h2v2h-2V4z" />
+                        </svg> Enregistrer en .txt
+                    </button>
+                </div>
+                
+                <!-- Nouveau champ pour estimer le temps -->
+                <div class="attribute">
+                    <label for="estimatePassword">Mot de passe à estimer :</label>
+                    <input type="text" id="estimatePassword" placeholder="Entrez un mot de passe">
+                    <button id="estimateBtn" class="icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14" />
+                        </svg> Estimer Temps
+                    </button>
+                </div>
+
+                <div id="timeEstimate"></div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
