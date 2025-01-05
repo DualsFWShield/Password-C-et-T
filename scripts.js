@@ -71,67 +71,62 @@ function removeCategory(index) {
 addCategoryBtn.addEventListener("click", addCategory);
 addWordBtn.addEventListener("click", addWord);
 
-// Générer le mot de passe et l'afficher
+// Générer le(s) mot(s) de passe et l'afficher
 document.getElementById("generateBtn").addEventListener("click", function () {
-    const length = document.getElementById("passwordLength").value;
-    const numPasswords = document.getElementById("numberOfPasswords").value;
-
-    const generatedPasswords = generatePasswords(length, numPasswords);
-    document.getElementById("generatedPassword").value = generatedPasswords.join("\n");
+  const numPasswords = document.getElementById("numberOfPasswords").value;
+  const generatedPasswords = generatePasswords(numPasswords);
+  document.getElementById("generatedPassword").value = generatedPasswords.join("\n");
 });
 
-// Fonction pour copier le mot de passe
+// Copier le(s) mot(s) de passe
 document.getElementById("copyBtn").addEventListener("click", function () {
-    const textarea = document.getElementById("generatedPassword");
-    textarea.select();
-    document.execCommand("copy");
-    alert("Mot de passe copié !");
+  const textarea = document.getElementById("generatedPassword");
+  textarea.select();
+  document.execCommand("copy");
+  alert("Mot de passe copié !");
 });
 
-// Fonction pour enregistrer en fichier .txt
+// Enregistrer en fichier .txt
 document.getElementById("saveBtn").addEventListener("click", function () {
-    const text = document.getElementById("generatedPassword").value;
-    const blob = new Blob([text], { type: "text/plain" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "mot_de_passe.txt";
-    link.click();
+  const text = document.getElementById("generatedPassword").value;
+  const blob = new Blob([text], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "mot_de_passe.txt";
+  link.click();
 });
 
-// Fonction de génération de mots de passe basée sur l'ordre des catégories
-function generatePasswords(length, numPasswords) {
-    const passwords = [];
-    for (let i = 0; i < numPasswords; i++) {
-        let password = "";
-        let remainingLength = length;
-        while (remainingLength > 0) {
-            for (let category of categories) {
-                if (remainingLength <= 0) break;
-                switch (category) {
-                    case "symboles":
-                        password += getRandomSymbol();
-                        break;
-                    case "chiffres":
-                        password += getRandomNumber();
-                        break;
-                    case "lettre-maj":
-                        password += getRandomUppercaseLetter();
-                        break;
-                    case "lettre-min":
-                        password += getRandomLowercaseLetter();
-                        break;
-                    case "mot-aleatoire":
-                        password += getRandomWord();
-                        break;
-                    default:
-                        password += category; // Si c'est un mot inclus
-                }
-                remainingLength--;
-            }
-        }
-        passwords.push(password);
+// Fonction principale de génération (sans remainingLength)
+function generatePasswords(numPasswords) {
+  const passwords = [];
+  for (let i = 0; i < numPasswords; i++) {
+    let password = "";
+    // Pour chaque catégorie sélectionnée, ajouter un caractère ou mot
+    for (let category of categories) {
+      switch (category) {
+        case "symboles":
+          password += getRandomSymbol();
+          break;
+        case "chiffres":
+          password += getRandomNumber();
+          break;
+        case "lettre-maj":
+          password += getRandomUppercaseLetter();
+          break;
+        case "lettre-min":
+          password += getRandomLowercaseLetter();
+          break;
+        case "mot-aleatoire":
+          password += getRandomWord();
+          break;
+        default:
+          // Si c'est un mot ajouté par l'utilisateur
+          password += category;
+      }
     }
-    return passwords;
+    passwords.push(password);
+  }
+  return passwords;
 }
 
 // Fonctions d'utilitaires pour générer des caractères
